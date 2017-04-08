@@ -16,8 +16,8 @@ body {
 
   display: inline-block;
   box-sizing: border-box;
-  width: 182px;
-  height: 182px;
+  width: 123px;
+  height: 123px;
   margin-right: 14px;
   margin-bottom: 14px;
   overflow: hidden;
@@ -26,15 +26,20 @@ body {
 }
 
 .picture img {
-  height: 182px;
+  height: 123px;
   margin-bottom: -34px;
 
   border: 0;
 }
 
 .likes,
-.comments {
+.comments,
+.newest {
   color: red;
   font-size: 18px;
   font-weight: 700;
+}
+
+.invisible {
+  display: none;
 }

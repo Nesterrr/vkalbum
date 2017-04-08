@@ -6,7 +6,32 @@ define(['./allTemplates'], (renderPics) => {
       COUNT = 50,
       ownerId = 200;
 
-  var loadJSON = (url, callback, ownerId) => {
+  var filters = (list, filterID) => {
+    var items = list.response.items;
+    switch(filterID) {
+      case 'filter-popular': {
+        items.sort(function(a, b){
+          return b.likes.count - a.likes.count;
+        });
+        break;
+      }
+      case 'filter-new': {
+        items.sort(function(a, b){
+          return b.date - a.date;
+        });
+        break;
+      }
+      case 'filter-discussed': {
+        items.sort(function(a, b){
+        return b.comments.count - a.comments.count;
+        });
+        break;
+      }
+    }
+    return list;
+  }
+
+  var loadJSON = (url, callback, ownerId, filterId) => {
     window[cbName] = function(data) {
       if(data.error) {
         alert(data.error.error_msg);
@@ -14,10 +39,9 @@ define(['./allTemplates'], (renderPics) => {
           if(data.response.count === 0) {
             alert('User dont have any images on the wall.');
           } else {
-            callback(data);
+            callback(filters(data, filterId));
           }
       }
-      
     };
 
     var script = document.createElement('script');

@@ -10,6 +10,12 @@ define(() => {
   var addPicsToTemplate = (pic) => {
     var nodeClone = picElement.cloneNode(true);
 
+    var nodeLikes = nodeClone.querySelector('.likes');
+    var nodeComments = nodeClone.querySelector('.comments');
+
+    nodeLikes.textContent = pic.likes.count;
+    nodeComments.textContent = pic.comments.count;
+
     var img = new Image();
 
     img.onload = (evt) => {

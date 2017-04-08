@@ -12,6 +12,30 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
  		ownerId = evt.value;
  	});
 
+ 	var filters = document.querySelector('.filters');
+  var filterId = 'filter-new';
+
+  filters.addEventListener('click', (event) => {
+	event.preventDefault();
+    var evt = event.target;
+
+    if(evt.className === 'likes') {
+      filterId = 'filter-popular';
+      var evnt = new Event("click");
+  	  showButton.dispatchEvent(evnt);
+    }
+    if(evt.className === 'comments') {
+      filterId = 'filter-discussed';
+      var evnt = new Event("click");
+  	  showButton.dispatchEvent(evnt);
+    }
+    if(evt.className === 'newest') {
+      filterId = 'filter-new';
+      var evnt = new Event("click");
+  	  showButton.dispatchEvent(evnt);
+    }
+  });
+
  	showButton.addEventListener('click', (event) => {
  		event.preventDefault();
 
@@ -24,9 +48,7 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
  					node.remove();
  				});
  			}
- 			loadJSON(API_URL, renderPics, ownerId);
-
- 			
+ 			loadJSON(API_URL, renderPics, ownerId, filterId);
  		}
  	});
 });
