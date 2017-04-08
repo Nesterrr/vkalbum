@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: block;
+  
+  margin: 0;
+  padding: 0;
+  min-height: 200px;
+  width: 100%;
+}
+
+.picture {
+  position: relative;
+
+  display: inline-block;
+  box-sizing: border-box;
+  width: 182px;
+  height: 182px;
+  margin-right: 14px;
+  margin-bottom: 14px;
+  overflow: hidden;
+
+  text-align: center;
+}
+
+.picture img {
+  height: 182px;
+  margin-bottom: -34px;
+
+  border: 0;
+}
+
+.likes,
+.comments {
+  color: red;
+  font-size: 18px;
+  font-weight: 700;
+}
