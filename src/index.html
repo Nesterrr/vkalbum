@@ -8,7 +8,7 @@
 <body>
   <form class="wrapp" method="get">
     <label for="">User id
-      <input type="text" class="owner-id">
+      <input type="text" class="owner-id"></input>
     </label>
     <button class="show">Показать</button>
   </form>
@@ -22,8 +22,12 @@
 
   </div>
   
-  <div class="gallery invisible">
+  <div class="gallery-overlay invisible">
+    <span class="left-arrow">туда</span><span class="right-arrow">сюда</span>
     <img src="" class="gallery-overlay-image" alt="">
+    <span class="gallery-likes"></span>    
+    <span class="gallery-comments"></span>
+    <span class="gallery-data"></span>
   </div>
 
   <template id="picture-template" style="display: none">

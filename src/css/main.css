@@ -43,3 +43,40 @@ body {
 .invisible {
   display: none;
 }
+
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+
+  overflow: auto;
+
+  text-align: center;
+
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.gallery-overlay-image[src=""] {
+  display: block;
+  width: 640px;
+  height: 640px;
+
+  border: dotted 1px #dddddd;
+  cursor: pointer;
+}
+
+.gallery-overlay-controls {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000000;
+}
+.gallery-overlay span {
+  color: red;
+  font-size: 30px;
+}
+.gallery-overlay span:hover {
+  background-color: #fff;
+}

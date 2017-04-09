@@ -1,25 +1,46 @@
 'use strict';
 
-define(() => {
-  // Шаблон
+define(['./gallery'], (gallery) => {
   var template = document.querySelector('#picture-template');
   var templateContainer = 'content' in template ? template.content : template;
 
   var picElement = templateContainer.querySelector('.picture');
 
-  var addPicsToTemplate = (pic) => {
-    var nodeClone = picElement.cloneNode(true);
+  function Picture(smallImg, galleryImg, data, likes, comments, nodeClone) {
+    this.smallImg = smallImg;
+    this.galleryImg = galleryImg;
 
-    var nodeLikes = nodeClone.querySelector('.likes');
-    var nodeComments = nodeClone.querySelector('.comments');
+    this.data = data;
 
-    nodeLikes.textContent = pic.likes.count;
-    nodeComments.textContent = pic.comments.count;
+    this.likes = likes;
+    this.comments = comments;
+    this.nodeClone = nodeClone;
+  }
+
+  Picture.prototype.setData = (pic) => {
+    this.smallImg = pic.photo_130;
+    this.galleryImg = pic.photo_604;
+
+    this.data = pic.data;
+
+    this.likes = pic.likes.count;
+    this.comments = pic.comments.count;
+  }
+
+  Picture.prototype.addPicsToTemplate = () => {
+    this.nodeClone = picElement.cloneNode(true);
+
+    this.nodeLikes = this.nodeClone.querySelector('.likes');
+    this.nodeComments = this.nodeClone.querySelector('.comments');
+
+    this.nodeLikes.textContent = this.likes;
+    this.nodeComments.textContent = this.comments;
 
     var img = new Image();
+    var self = this.nodeClone;
 
     img.onload = (evt) => {
-      var nodeImg = nodeClone.querySelector('img');
+      var nodeImg = self.querySelector('img');
 
       nodeImg.src = evt.target.src;
     };
@@ -28,11 +49,23 @@ define(() => {
       console.log('Img load error!');
     };
 
-    img.src = pic.photo_604;
+    img.src = this.smallImg;
 
-    return nodeClone;
+    return this.nodeClone;
   }
-  return addPicsToTemplate; 
+
+  Picture.prototype.addGalleryEvent = (i, pictures) => {
+    var self = this;
+    self.nodeClone.onclick = function(event) {
+        event.preventDefault();
+
+        function wrap(i, pictures) {
+          gallery.show(i, pictures)
+        };
+        wrap(i, pictures);
+    };
+  }
+  return Picture;
 });
 
 

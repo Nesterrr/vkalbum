@@ -8,6 +8,7 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
  	var ownreIdInput = document.querySelector('.owner-id');
 
  	ownreIdInput.addEventListener('input', (event) => {
+    event.preventDefault();
  		var evt = event.target;
  		ownerId = evt.value;
  	});
@@ -16,7 +17,7 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
   var filterId = 'filter-new';
 
   filters.addEventListener('click', (event) => {
-	event.preventDefault();
+	  event.preventDefault();
     var evt = event.target;
 
     if(evt.className === 'likes') {
@@ -38,7 +39,6 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
 
  	showButton.addEventListener('click', (event) => {
  		event.preventDefault();
-
  		if(!ownerId) {
  			alert('Input owner ID!');
  		} else {
