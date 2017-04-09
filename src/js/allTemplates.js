@@ -1,7 +1,7 @@
 'use strict';
 
 define(['./template','./gallery'], (Picture, gallery) => {
-  var picturesContainer = document.querySelector('.pictures');
+  var picturesContainer = document.querySelector('.pictures-container');
  
   var renderPics = (pictures) => {
     gallery.setPic(pictures);

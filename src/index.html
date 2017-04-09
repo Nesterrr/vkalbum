@@ -6,38 +6,42 @@
   <title>VK pics of a wall</title>
 </head>
 <body>
-  <form class="wrapp" method="get">
+  <form class="form-show" method="get">
     <label for="">User id
-      <input type="text" class="owner-id"></input>
+      <input type="text" class="form-show__owner-id-input"></input>
     </label>
-    <button class="show">Показать</button>
+    <button class="form-show__btn">Показать</button>
   </form>
   <form class="filters" method="get">
     <h2>Фильтры</h2>
-    <a href="" class="newest">Newest</a>
-    <a href="" class="likes">Likes</a>
-    <a href="" class="comments">Comments</a>
+    <a href="" class="filters__newest">Newest</a>
+    <a href="" class="filters__likes">Likes</a>
+    <a href="" class="filters__comments">Comments</a>
   </form>
-  <div class="pictures container" style="font-size: 12px;">
 
-  </div>
-  
+  <div class="pictures-container" style="font-size: 12px;"></div>
+
   <div class="gallery-overlay invisible">
-    <span class="left-arrow">туда</span><span class="right-arrow">сюда</span>
-    <img src="" class="gallery-overlay-image" alt="">
-    <span class="gallery-likes"></span>    
-    <span class="gallery-comments"></span>
-    <span class="gallery-data"></span>
+    <div class="gallery-overlay__arrows">
+      <span class="gallery-overlay__arrows left">туда</span>
+      <span class="gallery-overlay__arrows right">сюда</span>
+    </div>
+    <img src="" class="gallery-overlay__image" alt="">
+    <div class="gallery-overlay__info">
+      <span class="gallery-overlay__info likes"></span>    
+      <span class="gallery-overlay__info comments"></span>
+      <span class="gallery-overlay__info data"></span>
+    </div>
   </div>
 
   <template id="picture-template" style="display: none">
     <a href="" class="picture">
-      <img src="" width="123" height="123">
-      <span class="likes"></span>    
-      <span class="comments"></span>
+      <img src="" class="picture__img" width="123" height="123">
+      <span class="picture__likes"></span>    
+      <span class="picture__comments"></span>
     </a>
   </template>
+
   <script src="js/main.js" charset="utf-8"></script>
-</script>
 </body>
 </html>

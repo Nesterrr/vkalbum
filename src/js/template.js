@@ -30,8 +30,8 @@ define(['./gallery'], (gallery) => {
   Picture.prototype.addPicsToTemplate = () => {
     this.nodeClone = picElement.cloneNode(true);
 
-    this.nodeLikes = this.nodeClone.querySelector('.likes');
-    this.nodeComments = this.nodeClone.querySelector('.comments');
+    this.nodeLikes = this.nodeClone.querySelector('.picture__likes');
+    this.nodeComments = this.nodeClone.querySelector('.picture__comments');
 
     this.nodeLikes.textContent = this.likes;
     this.nodeComments.textContent = this.comments;

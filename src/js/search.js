@@ -4,8 +4,8 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
  	var API_URL = 'https://api.vk.com/method/photos.get?';
  	var ownerId;
 
- 	var showButton = document.querySelector('.show');
- 	var ownreIdInput = document.querySelector('.owner-id');
+ 	var showButton = document.querySelector('.form-show__btn');
+ 	var ownreIdInput = document.querySelector('.form-show__owner-id-input');
 
  	ownreIdInput.addEventListener('input', (event) => {
     event.preventDefault();
@@ -20,17 +20,17 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
 	  event.preventDefault();
     var evt = event.target;
 
-    if(evt.className === 'likes') {
+    if(evt.className === 'filters__likes') {
       filterId = 'filter-popular';
       var evnt = new Event("click");
   	  showButton.dispatchEvent(evnt);
     }
-    if(evt.className === 'comments') {
+    if(evt.className === 'filters__comments') {
       filterId = 'filter-discussed';
       var evnt = new Event("click");
   	  showButton.dispatchEvent(evnt);
     }
-    if(evt.className === 'newest') {
+    if(evt.className === 'filters__newest') {
       filterId = 'filter-new';
       var evnt = new Event("click");
   	  showButton.dispatchEvent(evnt);

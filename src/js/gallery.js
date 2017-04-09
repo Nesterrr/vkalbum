@@ -2,11 +2,11 @@
 
 define(() => {
 	var galleryOverlay = document.querySelector('.gallery-overlay');
-	var galleryOverlayImage = document.querySelector('.gallery-overlay-image');
+	var galleryOverlayImage = document.querySelector('.gallery-overlay__image');
 
-  var likes =  document.querySelector('.gallery-likes');
-  var comments =  document.querySelector('.gallery-comments');
-  var date =  document.querySelector('.gallery-data');
+  var likes =  document.querySelector('.likes');
+  var comments =  document.querySelector('.comments');
+  var date =  document.querySelector('.data');
 
 	function Gallery(pictures, photoId) {
 	}
@@ -14,8 +14,8 @@ define(() => {
   Gallery.prototype.setPic = (pic) => {
     this.pic = pic;
 
-    this.rArrow = document.querySelector('.right-arrow');
-    this.lArrow = document.querySelector('.left-arrow');
+    this.rArrow = document.querySelector('.right');
+    this.lArrow = document.querySelector('.left');
   }
 
 	Gallery.prototype.show = (num, pictures) => {
