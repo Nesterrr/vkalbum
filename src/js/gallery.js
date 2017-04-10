@@ -24,39 +24,76 @@ define(() => {
     function setPic(num, pictures) {
 		  galleryOverlay.classList.remove('invisible');
       galleryOverlayImage.setAttribute('src', pictures.response.items[num].photo_604);
-
       likes.textContent = pictures.response.items[num].likes.count;
       comments.textContent = pictures.response.items[num].comments.count;
-      date.textContent = new Date(pictures.response.items[num].date * 1000);
+
+      function formatDate(date) {
+        var dd = date.getDate();
+        if (dd < 10) dd = '0' + dd;
+
+         var mm = date.getMonth() + 1;
+         if (mm < 10) mm = '0' + mm;
+
+        var yy = date.getFullYear() % 100;
+        if (yy < 10) yy = '0' + yy;
+
+        return dd + '.' + mm + '.' + yy;
+      }
+      var d = new Date(pictures.response.items[num].date * 1000)
+      date.textContent = formatDate(d);
     }
 
     setPic(num, pictures);
-    
-    document.addEventListener('click', (event) => {
-      event.preventDefault();
-      var evt = event.target;
 
-      if(evt.className === galleryOverlay.className) {
-        galleryOverlay.classList.add('invisible');
-        this.rArrow.onclick = null;
-        this.lArrow.onclick = null;
-      }
-    });
+    function closeGallery() {
+      galleryOverlay.classList.add('invisible');
+    }
 
-    this.rArrow.onclick = function() {
+    function next() {
       num++;
       if(num === pictures.response.items.length) {
         num = 0;
       }
       setPic(num, pictures);
-    };
-	
-    this.lArrow.onclick = function() {
+    }
+
+    function prev() {
       if(num === 0) {
         num =  + pictures.response.items.length - 1;
       }
       num--;
       setPic(num, pictures);
+    }
+
+    document.addEventListener('click', (event) => {
+      event.preventDefault();
+      var evt = event.target;
+
+      if(evt.className === galleryOverlay.className) {
+        closeGallery();
+      }
+    });
+
+    this.rArrow.onclick = function() {
+      next();
+    };
+    
+	  document.addEventListener('keydown', (event) => {
+      var evt = event.keyCode;
+
+      if(evt === 27) {
+        closeGallery();
+      }
+      if(evt === 37) {
+        prev();
+      }
+      if(evt === 39) {
+        next();
+      }
+    }); 
+
+    this.lArrow.onclick = function() {
+      prev();
     };
   };
   return new Gallery();

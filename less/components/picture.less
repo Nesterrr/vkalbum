@@ -4,56 +4,68 @@
 
 	padding-bottom: 25px;
 	padding-top: 10px;
-	text-decoration: none;
 
 	overflow: hidden;
 
+	text-decoration: none;
 	background-color: rgba(192, 192, 192, 0.7);
 }
 .picture__img {
 	display: block;
+
 	max-height: 123px;
 	width: auto;
+
 	margin: 0 auto;
 }
 .picture__likes,
 .picture__comments {
 	display: inline-block;
+
 	text-decoration: none;
 	color: #000;
 }
 .picture__likes {
 	display: block;
 	float: left;
+
 	box-sizing: border-box;
 
 	width: 50%;
 }
 .picture__comments {
 	display: block;
+
 	float: right;
+
 	box-sizing: border-box;
 	width: 50%;
 }
 
 .picture__likes:before {
 	position: absolute;
+
 	content: '';
+
 	width: 20px;
 	height: 16px;
 
 	margin-left: -20px;
+
 	background-image: url(../img/image-icons-sprite.png);
 	background-position: 99% 0;
 	background-repeat: no-repeat;	
 }
 .picture__comments:before {
 	position: absolute;
+
 	content: '';
+
 	width: 20px;
 	height: 16px;
 
 	margin-left: -20px;
+
 	background-image: url(../img/image-icons-sprite.png);
 	background-position: 0% 0;
 	background-repeat: no-repeat;	

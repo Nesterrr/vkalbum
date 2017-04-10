@@ -1,7 +1,16 @@
-.wrapper {
-  display: block;
-  width: 960px;
-  margin: 0 auto;
+@media (min-width: 960px) {
+  .wrapper {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 960px) {
+  .wrapper {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 .form-show {
   display: flex;
@@ -34,30 +43,101 @@
 }
 .pictures-container {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 .gallery-overlay {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
   overflow: auto;
   text-align: center;
   background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+.gallery-overlay__image {
+  align-self: center;
+  box-sizing: border-box;
+  background-color: black;
 }
 .invisible {
   display: none;
+}
+.left,
+.right {
+  cursor: pointer;
+}
+.left:hover,
+.right:hover {
+  opacity: 0.7;
+}
+.left:before {
+  position: absolute;
+  content: '';
+  width: 27px;
+  height: 23px;
+  z-index: 1;
+  margin-top: -50px;
+  background-image: url(../img/icon-arrow.png);
+  background-repeat: no-repeat;
+}
+.right:before {
+  position: absolute;
+  content: '';
+  width: 27px;
+  height: 23px;
+  z-index: 1;
+  margin-left: -30px;
+  margin-top: -50px;
+  transform: rotate(180deg);
+  background-image: url(../img/icon-arrow.png);
+  background-repeat: no-repeat;
+}
+.gallery-overlay__info {
+  background-color: #000;
+}
+.likes {
+  margin-right: 40px;
+}
+.comments {
+  margin-right: 40px;
+}
+.likes:before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 16px;
+  margin-left: -20px;
+  background-image: url(../img/image-icons-sprite.png);
+  background-position: 99% 0;
+  background-repeat: no-repeat;
+}
+.comments:before {
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 16px;
+  margin-left: -20px;
+  background-image: url(../img/image-icons-sprite.png);
+  background-position: 0 0;
+  background-repeat: no-repeat;
 }
 .picture {
   height: 133px;
   width: 20%;
   padding-bottom: 25px;
   padding-top: 10px;
-  text-decoration: none;
   overflow: hidden;
+  text-decoration: none;
   background-color: rgba(192, 192, 192, 0.7);
 }
 .picture__img {
