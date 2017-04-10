@@ -48,6 +48,7 @@ define(['./load', './allTemplates'], (loadJSON, renderPics) => {
  					node.remove();
  				});
  			}
+      filters.classList.remove('invisible');
  			loadJSON(API_URL, renderPics, ownerId, filterId);
  		}
  	});

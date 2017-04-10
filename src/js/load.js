@@ -45,7 +45,7 @@ define(['./allTemplates'], (renderPics) => {
     };
 
     var script = document.createElement('script');
-    script.src = url + 'owner_id='+ ownerId + '&album_id=wall&extended=1&v=5.52' + '&count=' + COUNT + '&callback=' + cbName;
+    script.src = url + 'owner_id='+ ownerId + '&album_id=wall&extended=1&rev=1&v=5.52' + '&count=' + COUNT + '&callback=' + cbName;
     document.body.appendChild(script);
   };
 

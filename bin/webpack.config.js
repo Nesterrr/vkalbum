@@ -25,8 +25,13 @@ module.exports = {
     outputPath: '/',
     path: OUTPUT_DIRNAME,
     sourceMapFilename: "[file].map?dropcache"
-  },
-
+  },/*
+  module: {
+    loaders: [{
+      test: /\.less$/,
+      loader: 'less!css?resolveee url'
+    }]
+  },*/
   plugins: [
     new CopyWebpackPlugin([
       { from: `${SRC_DIRNAME}`, to: `${OUTPUT_DIRNAME}` }

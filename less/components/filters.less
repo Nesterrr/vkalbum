@@ -1,3 +1,25 @@
-﻿div {
-	background-color: #fff;
+﻿@text-color: #000;
+
+.filters {
+	display: flex;
+	
+	justify-content: center;
+}
+
+.filters__newest,
+.filters__likes {
+	margin-right: 10px;
+}
+
+.filters__newest,
+.filters__likes,
+.filters__comments {
+	text-decoration: none;
+	color: @text-color;
+}
+
+.filters__newest:hover,
+.filters__likes:hover,
+.filters__comments:hover {
+	opacity: 0.9;
 }
